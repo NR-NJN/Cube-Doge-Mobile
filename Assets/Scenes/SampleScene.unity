@@ -262,7 +262,7 @@ MonoBehaviour:
   fallingBlock: {fileID: 3029260844901560949, guid: f863ca05fda681f4a871affe16ce8bed, type: 3}
   screenSpawnSize: {x: 0.5, y: 2.5}
   MaxSpawnAngle: 10
-  SpawnTimeDifficulty: {x: 1, y: 0.1}
+  SpawnTimeDifficulty: {x: 1, y: 0.5}
 --- !u!1001 &7663411778770607060
 PrefabInstance:
   m_ObjectHideFlags: 0
