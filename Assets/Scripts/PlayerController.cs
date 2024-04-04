@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 6f;
-
+    public event System.Action OnPlayerdeath;
     float screenHalfW;
     float halfPlayerWidth;
+
+    //public static float DifficultyAtDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 InputDir = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+        Vector2 InputDir = new(Input.GetAxisRaw("Horizontal"), 0);
         Vector2 dir = InputDir.normalized;
         Vector2 velocity = dir*speed;
 
@@ -37,7 +39,16 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D triggerCollider)
     {
-        if (triggerCollider.tag == "Falling Block")
-        Destroy(gameObject);
+        if (triggerCollider.CompareTag("Falling Block"))
+        {
+            if (OnPlayerdeath!=null)
+            {
+                OnPlayerdeath();
+            }
+            
+            Destroy(gameObject);
+            
+        }
+        
     }
 }
