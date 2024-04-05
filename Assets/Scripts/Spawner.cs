@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
         if (Time.time> SpawnTimer)
         {
             float TimeBetweenSpawn = Mathf.Lerp(SpawnTimeDifficulty.x, SpawnTimeDifficulty.y, Settings.GetMaxDifficulty());
-            SpawnTimer = Time.timeSinceLevelLoad+TimeBetweenSpawn;
+            SpawnTimer = Time.time+TimeBetweenSpawn;
             float SpawnAngle = Random.Range(-MaxSpawnAngle, MaxSpawnAngle);
             float SpawnSize = Random.Range(screenSpawnSize.x, screenSpawnSize.y);
             Vector2 SpawnPos = new Vector2(Random.Range(-screenHalf.x, screenHalf.x), screenHalf.y + SpawnSize);
